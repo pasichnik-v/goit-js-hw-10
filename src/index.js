@@ -36,12 +36,23 @@ function onSearch(e) {
 }
 
 function createCountries(countries) {
+  
+  countries.sort(sortCountriesByName);
+
   if (countries.length === 1) {
     renderCountryInfo(countries);
   } else {
   renderCountryList(countries);  
   }
   
+}
+// Сортування країн 
+function sortCountriesByName(a, b) {
+  if (a.name.official < b.name.official) {
+    return -1;
+  } else {
+    return 1;
+  }
 }
 // Створення списку країн
 function renderCountryList(countries) {
