@@ -4,7 +4,7 @@ import { fetchCountries } from './fetchCountries';
 import Notiflix from 'notiflix';
 import debounce from 'lodash.debounce';
 
-//  вводимо змінні
+//  створюємо змінні
 const DEBOUNCE_DELAY = 300;
 const seachCountries = document.querySelector('input#search-box');
 const countryList = document.querySelector('.country-list');
@@ -30,12 +30,13 @@ function onSearch(e) {
       if (countries.length > 10) {
         return Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
       }
-      createCountries(countries);
+      showCountryInfo(countries);
     })
   .catch (error => Notiflix.Notify.failure('Oops, there is no country with that name'));
 }
 
-function createCountries(countries) {
+// 
+function showCountryInfo(countries) {
   
   countries.sort(sortCountriesByName);
 
